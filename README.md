@@ -1,6 +1,27 @@
 # ELSpring2016
 
- Joji Jacob(N02452642) Embedded Linux repository :)
+Joji Jacob(N02452642) Embedded Linux repository :)! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
