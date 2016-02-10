@@ -1,0 +1,602 @@
+
+pi@raspberrypi:~$ ifconfig
+
+eth0      Link encap:Ethernet  HWaddr b8:27:eb:f4:73:ef  
+          inet6 addr: fe80::1226:8ba1:ef2d:1acf/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:200 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:200 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16656 (16.2 KiB)  TX bytes:16656 (16.2 KiB)
+
+wlan0     Link encap:Ethernet  HWaddr 00:e0:4c:1d:44:ec  
+          inet addr:192.168.2.131  Bcast:192.168.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::285:15a4:a178:a826/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:283 errors:0 dropped:74 overruns:0 frame:0
+          TX packets:94 errors:0 dropped:1 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:48883 (47.7 KiB)  TX bytes:13295 (12.9 KiB)
+
+
+pi@raspberrypi:~$ df -h
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root        15G  3.5G   11G  26% /
+devtmpfs        182M     0  182M   0% /dev
+tmpfs           186M     0  186M   0% /dev/shm
+tmpfs           186M  4.4M  182M   3% /run
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+tmpfs           186M     0  186M   0% /sys/fs/cgroup
+/dev/mmcblk0p1   60M   20M   41M  34% /boot
+tmpfs            38M     0   38M   0% /run/user/1000
+
+pi@raspberrypi:~$ du -sk ~/
+
+5476996	/home/joji/
+
+pi@raspberrypi:~$ du -sh ~/
+
+5.3G	/home/joji/
+
+pi@raspberrypi:~$ ps 
+
+ PID TTY          TIME CMD
+ 2101 pts/2    00:00:00 bash
+ 2126 pts/2    00:00:00 ps
+
+pi@raspberrypi:~$ ps xa
+
+PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:01 /sbin/init splash
+    2 ?        S      0:00 [kthreadd]
+    3 ?        S      0:00 [ksoftirqd/0]
+    4 ?        S      0:00 [kworker/0:0]
+    5 ?        S<     0:00 [kworker/0:0H]
+    6 ?        S      0:00 [kworker/u16:0]
+    7 ?        S      0:00 [rcu_sched]
+    8 ?        S      0:00 [rcu_bh]
+    9 ?        S      0:00 [rcuos/0]
+   10 ?        S      0:00 [rcuob/0]
+   11 ?        S      0:00 [migration/0]
+   12 ?        S      0:00 [watchdog/0]
+   13 ?        S      0:00 [watchdog/1]
+   14 ?        S      0:00 [migration/1]
+   15 ?        S      0:00 [ksoftirqd/1]
+   16 ?        S      0:00 [kworker/1:0]
+   17 ?        S<     0:00 [kworker/1:0H]
+   18 ?        S      0:00 [rcuos/1]
+   19 ?        S      0:00 [rcuob/1]
+   20 ?        S      0:00 [watchdog/2]
+   21 ?        S      0:00 [migration/2]
+   22 ?        S      0:00 [ksoftirqd/2]
+   23 ?        S      0:01 [kworker/2:0]
+   24 ?        S<     0:00 [kworker/2:0H]
+   25 ?        S      0:00 [rcuos/2]
+   26 ?        S      0:00 [rcuob/2]
+   27 ?        S      0:00 [watchdog/3]
+   28 ?        S      0:00 [migration/3]
+   29 ?        S      0:00 [ksoftirqd/3]
+   30 ?        S      0:00 [kworker/3:0]
+   31 ?        S<     0:00 [kworker/3:0H]
+   32 ?        S      0:00 [rcuos/3]
+   33 ?        S      0:00 [rcuob/3]
+   34 ?        S<     0:00 [khelper]
+   35 ?        S      0:00 [kdevtmpfs]
+   36 ?        S<     0:00 [netns]
+   37 ?        S<     0:00 [perf]
+   38 ?        S      0:00 [khungtaskd]
+   39 ?        S<     0:00 [writeback]
+   40 ?        SN     0:00 [ksmd]
+   41 ?        SN     0:00 [khugepaged]
+   42 ?        S<     0:00 [crypto]
+   43 ?        S<     0:00 [kintegrityd]
+   44 ?        S<     0:00 [bioset]
+   45 ?        S<     0:00 [kblockd]
+   46 ?        S<     0:00 [ata_sff]
+   47 ?        S<     0:00 [md]
+   48 ?        S<     0:00 [devfreq_wq]
+   49 ?        S      0:00 [kworker/u16:1]
+   50 ?        S      0:04 [kworker/1:1]
+   51 ?        S      0:00 [kworker/0:1]
+   53 ?        S      0:00 [kswapd0]
+   54 ?        S      0:00 [fsnotify_mark]
+   55 ?        S      0:00 [ecryptfs-kthrea]
+   66 ?        S<     0:00 [kthrotld]
+   67 ?        S<     0:00 [acpi_thermal_pm]
+   68 ?        S      0:00 [kworker/u16:2]
+   69 ?        S      0:00 [kworker/3:1]
+   73 ?        S<     0:00 [ipv6_addrconf]
+   92 ?        S<     0:00 [deferwq]
+   93 ?        S<     0:00 [charger_manager]
+  136 ?        S<     0:00 [kpsmoused]
+  137 ?        S      0:00 [kworker/2:1]
+  138 ?        S      0:00 [kworker/2:2]
+  139 ?        S      0:00 [scsi_eh_0]
+  140 ?        S<     0:00 [scsi_tmf_0]
+  141 ?        S      0:00 [scsi_eh_1]
+  142 ?        S<     0:00 [scsi_tmf_1]
+  143 ?        S      0:00 [scsi_eh_2]
+  144 ?        S<     0:00 [scsi_tmf_2]
+  145 ?        S      0:00 [kworker/u16:3]
+  146 ?        S      0:00 [kworker/u16:4]
+  147 ?        S      0:00 [kworker/u16:5]
+  148 ?        S      0:00 [kworker/1:2]
+  149 ?        S      0:00 [kworker/3:2]
+  174 ?        S<     0:00 [kworker/1:1H]
+  176 ?        S      0:00 [jbd2/sda9-8]
+  177 ?        S<     0:00 [ext4-rsv-conver]
+  211 ?        S      0:00 [kauditd]
+  219 ?        Ss     0:00 /lib/systemd/systemd-journald
+  238 ?        S      0:00 [kworker/0:2]
+  243 ?        Ss     0:00 /lib/systemd/systemd-udevd
+  275 ?        S      0:00 [irq/47-mei_me]
+  283 ?        S<     0:00 [kworker/0:1H]
+  287 ?        S<     0:00 [cfg80211]
+  293 ?        S      0:00 [irq/48-iwlwifi]
+  304 ?        S<     0:00 [kworker/u17:0]
+  308 ?        S<     0:00 [hci0]
+  309 ?        S<     0:00 [hci0]
+  310 ?        S<     0:00 [kworker/u17:1]
+  315 ?        S<     0:00 [kworker/u17:2]
+  363 ?        S<     0:00 [kworker/2:1H]
+  380 ?        S      0:00 [kworker/0:3]
+  381 ?        S      0:00 [kworker/0:4]
+  440 ?        Ssl    0:00 /lib/systemd/systemd-timesyncd
+  592 ?        Ssl    0:00 /usr/bin/whoopsie -f
+  594 ?        Ssl    0:00 /usr/sbin/ModemManager
+  595 ?        Ssl    0:00 /usr/sbin/NetworkManager --no-daemon
+  601 ?        Ss     0:00 /usr/sbin/cron -f
+  604 ?        Ssl    0:00 /usr/lib/accountsservice/accounts-daemon
+  607 ?        Ssl    0:00 /usr/sbin/rsyslogd -n
+  611 ?        S<     0:00 [kworker/3:1H]
+  613 ?        Ssl    0:00 /usr/sbin/thermald --no-daemon --dbus-enable
+  626 ?        Ss     0:00 /usr/bin/dbus-daemon --system --address=systemd: --n
+  646 ?        Ss     0:00 /sbin/cgmanager -m name=systemd
+  648 ?        Ss     0:00 /usr/sbin/cupsd -l
+  650 ?        Ss     0:00 /lib/systemd/systemd-logind
+  653 ?        Ss     0:00 /usr/lib/bluetooth/bluetoothd
+  658 ?        Ss     0:00 avahi-daemon: running [joji-Lenovo-IdeaPad-U530-Touc
+  675 ?        Ss     0:00 /usr/sbin/irqbalance --pid=/var/run/irqbalance.pid
+  680 ?        S      0:00 avahi-daemon: chroot helper
+  682 ?        Ssl    0:00 /usr/sbin/cups-browsed
+  683 ?        Ssl    0:00 /usr/lib/policykit-1/polkitd --no-debug
+  701 ?        Ss     0:00 /usr/sbin/kerneloops
+  719 ?        SLsl   0:00 /usr/sbin/lightdm
+  727 tty7     Ssl+   0:07 /usr/bin/X -core :0 -seat seat0 -auth /var/run/light
+  733 ?        Ss     0:00 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+  737 ?        Ss     0:00 /usr/sbin/acpid
+  752 tty1     Ss+    0:00 /sbin/agetty --noclear tty1 linux
+  812 ?        Sl     0:00 lightdm --session-child 12 19
+  888 ?        SNsl   0:00 /usr/lib/rtkit/rtkit-daemon
+  949 ?        S      0:00 /sbin/dhclient -d -q -sf /usr/lib/NetworkManager/nm-
+  962 ?        S<     0:00 [krfcommd]
+  965 ?        Ssl    0:00 /usr/lib/upower/upowerd
+  993 ?        Ssl    0:00 /usr/lib/colord/colord
+ 1008 ?        S      0:00 /usr/sbin/dnsmasq --no-resolv --keep-in-foreground -
+ 1212 ?        Ss     0:00 /lib/systemd/systemd --user
+ 1213 ?        S      0:00 (sd-pam)         
+ 1219 ?        Sl     0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+ 1221 ?        Ss     0:00 /sbin/upstart --user
+ 1297 ?        S      0:00 upstart-udev-bridge --daemon --user
+ 1305 ?        Ss     0:00 dbus-daemon --fork --session --address=unix:abstract
+ 1317 ?        Ss     0:00 /usr/lib/x86_64-linux-gnu/hud/window-stack-bridge
+ 1338 ?        Sl     0:00 /usr/lib/gvfs/gvfsd
+ 1343 ?        Ssl    0:00 /usr/bin/ibus-daemon --daemonize --xim
+ 1355 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o b
+ 1372 ?        Sl     0:00 /usr/lib/ibus/ibus-dconf
+ 1373 ?        Sl     0:00 /usr/lib/ibus/ibus-ui-gtk3
+ 1375 ?        Sl     0:00 /usr/lib/ibus/ibus-x11 --kill-daemon
+ 1377 ?        Sl     0:00 /usr/lib/x86_64-linux-gnu/bamf/bamfdaemon
+ 1389 ?        Sl     0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+ 1397 ?        S      0:00 /usr/bin/dbus-daemon --config-file=/etc/at-spi2/acce
+ 1405 ?        S      0:00 upstart-dbus-bridge --daemon --system --user --bus-n
+ 1410 ?        S      0:00 upstart-dbus-bridge --daemon --session --user --bus-
+ 1411 ?        Sl     0:00 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-
+ 1413 ?        S      0:00 upstart-file-bridge --daemon --user
+ 1417 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/hud/hud-service
+ 1423 ?        Ssl    0:00 /usr/lib/unity-settings-daemon/unity-settings-daemon
+ 1432 ?        Ssl    0:09 compiz
+ 1435 ?        Ssl    0:00 gnome-session --session=ubuntu
+ 1439 ?        Ssl    0:00 /usr/lib/unity/unity-panel-service
+ 1455 ?        Sl     0:00 /usr/lib/ibus/ibus-engine-simple
+ 1463 ?        Sl     0:00 /usr/lib/dconf/dconf-service
+ 1483 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-messages/indicat
+ 1484 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-bluetooth/indica
+ 1486 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-power/indicator-
+ 1488 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-datetime/indicat
+ 1489 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-keyboard/indicat
+ 1490 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-sound/indicator-
+ 1491 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-printers/indicat
+ 1492 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-session/indicato
+ 1501 ?        Ssl    0:00 /usr/lib/x86_64-linux-gnu/indicator-application/indi
+ 1544 ?        Sl     0:00 /usr/lib/evolution/evolution-source-registry
+ 1548 ?        S      0:00 syndaemon -i 1.0 -t -K -R
+ 1554 ?        S<l    0:00 /usr/bin/pulseaudio --start --log-target=syslog
+ 1589 ?        Sl     0:00 /usr/lib/evolution/evolution-calendar-factory
+ 1594 ?        Sl     0:00 /usr/lib/unity-settings-daemon/unity-fallback-mount-
+ 1595 ?        Sl     0:00 nautilus -n
+ 1597 ?        Sl     0:00 nm-applet
+ 1600 ?        Sl     0:00 /usr/lib/policykit-1-gnome/polkit-gnome-authenticati
+ 1617 ?        Sl     0:00 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+ 1621 ?        Ssl    0:00 /usr/lib/udisks2/udisksd --no-debug
+ 1630 ?        S      0:00 /usr/lib/x86_64-linux-gnu/gconf/gconfd-2
+ 1635 ?        Sl     0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+ 1640 ?        Sl     0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+ 1648 ?        Sl     0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+ 1651 ?        Sl     0:00 /usr/lib/evolution/evolution-calendar-factory-subpro
+ 1666 ?        Sl     0:00 /usr/lib/evolution/evolution-addressbook-factory
+ 1668 ?        Sl     0:00 /usr/lib/evolution/evolution-calendar-factory-subpro
+ 1683 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.3 /org/gtk/gv
+ 1691 ?        Sl     0:00 /usr/lib/evolution/evolution-addressbook-factory-sub
+ 1709 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-metadata
+ 1713 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-burn --spawner :1.3 /org/gtk/gvf
+ 1731 ?        Sl     0:00 telepathy-indicator
+ 1741 ?        Sl     0:00 /usr/lib/telepathy/mission-control-5
+ 1759 ?        Sl     0:00 zeitgeist-datahub
+ 1765 ?        Sl     0:00 /usr/bin/zeitgeist-daemon
+ 1772 ?        Sl     0:00 /usr/lib/x86_64-linux-gnu/zeitgeist-fts
+ 1850 ?        Sl     0:00 /usr/lib/libreoffice/program/oosplash --writer
+ 1868 ?        Sl     0:02 /usr/lib/libreoffice/program/soffice.bin --writer --
+ 1906 ?        Sl     0:00 update-notifier
+ 1955 ?        Sl     0:06 /usr/lib/firefox/firefox
+ 2035 ?        Sl     0:00 /usr/lib/x86_64-linux-gnu/unity-scope-home/unity-sco
+ 2048 ?        Sl     0:00 /usr/bin/unity-scope-loader applications/application
+ 2051 ?        Sl     0:00 /usr/lib/x86_64-linux-gnu/unity-lens-files/unity-fil
+ 2093 ?        Sl     0:01 /usr/lib/gnome-terminal/gnome-terminal-server
+ 2100 ?        S      0:00 gnome-pty-helper
+ 2101 pts/2    Ss     0:00 bash
+ 2113 ?        Sl     0:00 /usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
+ 2128 pts/2    R+     0:00 ps xa
+
+pi@raspberrypi:~$ date
+
+Sun Feb  7 19:28:19 EST 2016
+
+pi@raspberrypi:~$ who
+
+joji     :0           2016-02-07 19:23 (:0)
+joji     pts/2        2016-02-07 19:25 (:0)
+joji@joji-Lenovo-IdeaPad-U530-Touch:~$ 
+
+pi@raspberrypi:~$ whoami
+
+joji
+
+pi@raspberrypi:~$ which python
+
+/usr/bin/python
+
+pi@raspberrypi:~$ which nano
+
+/bin/nano
+
+pi@raspberrypi:~$ ls /sbin
+
+acpi_available   initctl                pam_extrausers_update
+agetty           insmod                 pam_tally
+alsa             installkernel          pam_tally2
+apm_available    ip                     parted
+apparmor_parser  ip6tables              partprobe
+badblocks        ip6tables-restore      pccardctl
+blkdiscard       ip6tables-save         pivot_root
+blkid            ipmaddr                plipconfig
+blockdev         iptables               plymouthd
+bridge           iptables-restore       poweroff
+brltty           iptables-save          rarp
+brltty-setup     iptunnel               raw
+capsh            isosize                reboot
+cfdisk           iw                     regdbdump
+cgdisk           iwconfig               reload
+cgmanager        iwevent                resize2fs
+cgproxy          iwgetid                resolvconf
+chcpu            iwlist                 restart
+crda             iwpriv                 rmmod
+ctrlaltdel       iwspy                  route
+debugfs          kbdrate                rtacct
+depmod           killall5               rtmon
+dhclient         ldconfig               runlevel
+dhclient-script  ldconfig.real          runuser
+dmsetup          logsave                setcap
+dosfsck          losetup                setvtrgb
+dosfslabel       lsmod                  sfdisk
+dumpe2fs         lspcmcia               sgdisk
+e2fsck           MAKEDEV                shadowconfig
+e2image          mii-tool               shutdown
+e2label          mkdosfs                slattach
+e2undo           mke2fs                 start
+ethtool          mkfs                   start-stop-daemon
+fatlabel         mkfs.bfs               status
+fdisk            mkfs.cramfs            stop
+findfs           mkfs.ext2              sulogin
+fixparts         mkfs.ext3              swaplabel
+fsck             mkfs.ext4              swapoff
+fsck.cramfs      mkfs.ext4dev           swapon
+fsck.ext2        mkfs.fat               switch_root
+fsck.ext3        mkfs.minix             sysctl
+fsck.ext4        mkfs.msdos             tc
+fsck.ext4dev     mkfs.ntfs              telinit
+fsck.fat         mkfs.vfat              tune2fs
+fsck.minix       mkhomedir_helper       udevadm
+fsck.msdos       mkntfs                 umount.udisks2
+fsck.nfs         mkswap                 unix_chkpwd
+fsck.vfat        mntctl                 unix_update
+fsfreeze         modinfo                upstart
+fstab-decode     modprobe               upstart-dbus-bridge
+fstrim           mountall               upstart-event-bridge
+gdisk            mount.fuse             upstart-file-bridge
+getcap           mount.lowntfs-3g       upstart-local-bridge
+getpcaps         mount.ntfs             upstart-socket-bridge
+getty            mount.ntfs-3g          upstart-udev-bridge
+halt             nameif                 ureadahead
+hdparm           ntfsclone              wipefs
+hwclock          ntfscp                 wpa_action
+ifconfig         ntfslabel              wpa_cli
+ifdown           ntfsresize             wpa_supplicant
+ifquery          ntfsundelete           xtables-multi
+ifup             on_ac_power
+init             pam_extrausers_chkpwd
+
+pi@raspberrypi:~$ lsmod
+
+Module                  Size  Used by
+rfcomm                 69632  0
+drbg                   32768  1
+ansi_cprng             16384  0
+ctr                    16384  2
+ccm                    20480  2
+bnep                   20480  2
+nls_iso8859_1          16384  1
+arc4                   16384  2
+snd_hda_codec_hdmi     49152  1
+snd_hda_codec_realtek    86016  1
+snd_hda_codec_generic    77824  1 snd_hda_codec_realtek
+snd_hda_intel          36864  5
+snd_hda_codec         135168  4 snd_hda_codec_realtek,snd_hda_codec_hdmi,snd_hda_codec_generic,snd_hda_intel
+snd_hda_core           65536  5 snd_hda_codec_realtek,snd_hda_codec_hdmi,snd_hda_codec_generic,snd_hda_codec,snd_hda_intel
+iwlmvm                294912  0
+snd_hwdep              16384  1 snd_hda_codec
+mac80211              733184  1 iwlmvm
+intel_rapl             20480  0
+snd_pcm               102400  4 snd_hda_codec_hdmi,snd_hda_codec,snd_hda_intel,snd_hda_core
+iosf_mbi               16384  1 intel_rapl
+iwlwifi               200704  1 iwlmvm
+x86_pkg_temp_thermal    16384  0
+intel_powerclamp       16384  0
+coretemp               16384  0
+snd_seq_midi           16384  0
+snd_seq_midi_event     16384  1 snd_seq_midi
+cfg80211              548864  3 iwlwifi,mac80211,iwlmvm
+snd_rawmidi            32768  1 snd_seq_midi
+kvm                   512000  0
+snd_seq                69632  2 snd_seq_midi_event,snd_seq_midi
+snd_seq_device         16384  3 snd_seq,snd_rawmidi,snd_seq_midi
+crct10dif_pclmul       16384  0
+crc32_pclmul           16384  0
+snd_timer              32768  2 snd_pcm,snd_seq
+ghash_clmulni_intel    16384  0
+aesni_intel           167936  4
+uvcvideo               90112  0
+snd                    81920  21 snd_hda_codec_realtek,snd_hwdep,snd_timer,snd_hda_codec_hdmi,snd_pcm,snd_seq,snd_rawmidi,snd_hda_codec_generic,snd_hda_codec,snd_hda_intel,snd_seq_device
+videobuf2_vmalloc      16384  1 uvcvideo
+soundcore              16384  1 snd
+videobuf2_memops       16384  1 videobuf2_vmalloc
+aes_x86_64             20480  1 aesni_intel
+videobuf2_core         49152  1 uvcvideo
+lrw                    16384  1 aesni_intel
+gf128mul               16384  1 lrw
+v4l2_common            16384  1 videobuf2_core
+glue_helper            16384  1 aesni_intel
+ablk_helper            16384  1 aesni_intel
+videodev              172032  3 uvcvideo,v4l2_common,videobuf2_core
+cryptd                 20480  3 ghash_clmulni_intel,aesni_intel,ablk_helper
+media                  24576  2 uvcvideo,videodev
+joydev                 20480  0
+btusb                  45056  0
+input_leds             16384  0
+serio_raw              16384  0
+btrtl                  16384  1 btusb
+mac_hid                16384  0
+btbcm                  16384  1 btusb
+hid_multitouch         20480  0
+mei_me                 32768  0
+btintel                16384  1 btusb
+bluetooth             516096  29 bnep,btbcm,btrtl,btusb,rfcomm,btintel
+mei                    98304  1 mei_me
+lpc_ich                24576  0
+shpchp                 36864  0
+ideapad_laptop         24576  0
+sparse_keymap          16384  1 ideapad_laptop
+intel_smartconnect     16384  0
+soc_button_array       16384  0
+parport_pc             32768  0
+ppdev                  20480  0
+lp                     20480  0
+parport                49152  3 lp,ppdev,parport_pc
+autofs4                40960  2
+hid_generic            16384  0
+usbhid                 49152  0
+hid                   118784  3 hid_multitouch,hid_generic,usbhid
+i915                 1130496  4
+i2c_algo_bit           16384  1 i915
+drm_kms_helper        126976  1 i915
+psmouse               126976  0
+ahci                   36864  3
+drm                   356352  5 i915,drm_kms_helper
+r8169                  81920  0
+libahci                32768  1 ahci
+mii                    16384  1 r8169
+wmi                    20480  0
+video                  36864  2 i915,ideapad_laptop
+
+pi@raspberrypi:~$ which mount
+
+/bin/mount
+
+pi@raspberrypi:~$ mount
+
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+udev on /dev type devtmpfs (rw,nosuid,relatime,size=3944560k,nr_inodes=986140,mode=755)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,noexec,relatime,size=792380k,mode=755)
+/dev/sda9 on / type ext4 (rw,relatime,errors=remount-ro,data=ordered)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)
+tmpfs on /sys/fs/cgroup type tmpfs (rw,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/lib/systemd/systemd-cgroups-agent,name=systemd)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+efivarfs on /sys/firmware/efi/efivars type efivarfs (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event,release_agent=/run/cgmanager/agents/cgm-release-agent.perf_event)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset,clone_children)
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb,release_agent=/run/cgmanager/agents/cgm-release-agent.hugetlb)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=32,pgrp=1,timeout=0,minproto=5,maxproto=5,direct)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+fusectl on /sys/fs/fuse/connections type fusectl (rw,relatime)
+/dev/sda2 on /boot/efi type vfat (rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+cgmfs on /run/cgmanager/fs type tmpfs (rw,relatime,size=100k,mode=755)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=792380k,mode=700,uid=1000,gid=1000)
+gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,relatime,user_id=1000,group_id=1000)
+
+pi@raspberrypi:~$ which sqlite
+
+-
+
+pi@raspberrypi:~$ which sqlite3
+
+-
+
+pi@raspberrypi:~$ sudo apt-get install sqlite3
+
+[sudo] password for joji: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Suggested packages:
+  sqlite3-doc
+The following NEW packages will be installed:
+  sqlite3
+0 upgraded, 1 newly installed, 0 to remove and 137 not upgraded.
+Need to get 36.2 kB of archives.
+After this operation, 170 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu/ wily/main sqlite3 amd64 3.8.11.1-1 [36.2 kB]
+Fetched 36.2 kB in 1s (20.0 kB/s)                      
+Selecting previously unselected package sqlite3.
+(Reading database ... 176175 files and directories currently installed.)
+Preparing to unpack .../sqlite3_3.8.11.1-1_amd64.deb ...
+Unpacking sqlite3 (3.8.11.1-1) ...
+Processing triggers for man-db (2.7.4-1) ...
+Setting up sqlite3 (3.8.11.1-1) ...
+
+pi@raspberrypi:~$ which sqlite3
+
+/usr/bin/sqlite3
+
+pi@raspberrypi:~$ dpkg -l  >installed_packages.txt
+
+-
+
+pi@raspberrypi:~$ tail installed_packages.txt
+
+ii  xul-ext-ubufox                                3.2-0ubuntu1                               all          Ubuntu modifications for Firefox
+ii  xz-utils                                      5.1.1alpha+20120614-2ubuntu2               amd64        XZ-format compression utilities
+ii  yelp                                          3.16.1-1ubuntu1                            amd64        Help browser for GNOME
+ii  yelp-xsl                                      3.16.1-1                                   all          XSL stylesheets for the yelp help browser
+ii  zeitgeist-core                                0.9.16-0ubuntu3~gcc5.1                     amd64        event logging framework - engine
+ii  zeitgeist-datahub                             0.9.16-0ubuntu3~gcc5.1                     amd64        event logging framework - passive logging daemon
+ii  zenity                                        3.16.3-1ubuntu3                            amd64        Display graphical dialog boxes from shell scripts
+ii  zenity-common                                 3.16.3-1ubuntu3                            all          Display graphical dialog boxes from shell scripts (common files)
+ii  zip                                           3.0-11                                     amd64        Archiver for .zip files
+ii  zlib1g:amd64                                  1:1.2.8.dfsg-2ubuntu4                      amd64        compression library - runtime
+
+pi@raspberrypi:~$ wc -l installed_packages.txt 
+
+1868 installed_packages.txt
+
+pi@raspberrypi:~$ find / -iname 'syslog*'
+
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/auto/Sys/Syslog
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/auto/Sys/Syslog/Syslog.so
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/bits/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/bits/syslog-path.ph
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/bits/syslog-ldbl.ph
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/Sys/Syslog.pm
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/sys/syslog.ph
+/usr/lib/python2.7/dist-packages/twisted/python/syslog.py
+/usr/lib/python2.7/dist-packages/twisted/python/syslog.pyc
+/usr/share/doc/syslinux-common/examples/syslogo.ppm.gz
+/usr/share/doc/busybox-static/syslog.conf.txt
+/usr/share/doc/sudo/examples/syslog.conf
+/usr/share/python3-pycparser/fake_libc_include/syslog.h
+/usr/share/man/man3/syslog.3.gz
+/usr/share/man/man2/syslog.2.gz
+/usr/share/python-pycparser/fake_libc_include/syslog.h
+/usr/src/linux-headers-4.2.0-16/include/linux/syslog.h
+/usr/include/x86_64-linux-gnu/bits/syslog-ldbl.h
+/usr/include/x86_64-linux-gnu/bits/syslog.h
+/usr/include/x86_64-linux-gnu/bits/syslog-path.h
+/usr/include/x86_64-linux-gnu/sys/syslog.h
+/usr/include/syslog.h
+/run/systemd/journal/syslog
+/lib/systemd/system/syslog.socket
+/var/lib/systemd/deb-systemd-helper-enabled/syslog.service
+/var/log/installer/syslog
+/var/log/syslog.1
+/var/log/syslog
+/var/log/syslog.2.gz
+/etc/systemd/system/syslog.service
+
+pi@raspberrypi:~$ find / -iname 'syslog*' 2>/dev/null
+
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/auto/Sys/Syslog
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/auto/Sys/Syslog/Syslog.so
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/bits/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/bits/syslog-path.ph
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/bits/syslog-ldbl.ph
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/Sys/Syslog.pm
+/usr/lib/x86_64-linux-gnu/perl/5.20.2/sys/syslog.ph
+/usr/lib/python2.7/dist-packages/twisted/python/syslog.py
+/usr/lib/python2.7/dist-packages/twisted/python/syslog.pyc
+/usr/share/doc/syslinux-common/examples/syslogo.ppm.gz
+/usr/share/doc/busybox-static/syslog.conf.txt
+/usr/share/doc/sudo/examples/syslog.conf
+/usr/share/python3-pycparser/fake_libc_include/syslog.h
+/usr/share/man/man3/syslog.3.gz
+/usr/share/man/man2/syslog.2.gz
+/usr/share/python-pycparser/fake_libc_include/syslog.h
+/usr/src/linux-headers-4.2.0-16/include/linux/syslog.h
+/usr/include/x86_64-linux-gnu/bits/syslog-ldbl.h
+/usr/include/x86_64-linux-gnu/bits/syslog.h
+/usr/include/x86_64-linux-gnu/bits/syslog-path.h
+/usr/include/x86_64-linux-gnu/sys/syslog.h
+/usr/include/syslog.h
+/run/systemd/journal/syslog
+/lib/systemd/system/syslog.socket
+/var/lib/systemd/deb-systemd-helper-enabled/syslog.service
+/var/log/syslog.3.gz
+/var/log/installer/syslog
+/var/log/syslog.1
+/var/log/syslog
+/var/log/syslog.2.gz
+/etc/systemd/system/syslog.service
+
